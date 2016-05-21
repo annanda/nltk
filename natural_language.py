@@ -1,6 +1,5 @@
 import nltk, re
 
-
 class Process:
 
     path = None
@@ -16,7 +15,7 @@ class Process:
                 article_name = re.findall(r'(.*?)\n', artigo.strip())
                 article_name = article_name[0]
                 # print(article_name)
-                with open(article_name, 'w') as text_article:
+                with open('articles/'+article_name, 'w') as text_article:
                     text_article.write(artigo.strip())
         return artigos
 
@@ -35,6 +34,6 @@ class Process:
             segmentos.append(segmentado)
         return segmentos
 
-p = Process('wiki_01')
+p = Process('resources/wiki_01')
 p.read()
 p.segment()[2]
