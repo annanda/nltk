@@ -34,6 +34,7 @@ class Process:
             segmentos.append(segmentado)
         return segmentos
 
+
 p = Process('resources/wiki_01')
 p.read()
 p.segment()[2]
