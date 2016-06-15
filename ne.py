@@ -1,5 +1,5 @@
 import nltk
-with open('Aristotle', 'r') as f:
+with open('articles/Aristotle', 'r') as f:
     sample = f.read()
 
 
@@ -7,7 +7,7 @@ sentences = nltk.sent_tokenize(sample)
 tokenized_sentences = [nltk.word_tokenize(sentence) for sentence in sentences]
 tagged_sentences = [nltk.pos_tag(sentence) for sentence in tokenized_sentences]
 chunked_sentences = nltk.ne_chunk_sents(tagged_sentences, binary=True)
-
+#print(list(chunked_sentences)[1])
 
 def extract_entity_names(t):
     entity_names = []
@@ -20,6 +20,9 @@ def extract_entity_names(t):
                 entity_names.extend(extract_entity_names(child))
 
     return entity_names
+
+print(extract_entity_names(list(chunked_sentences)[1]))
+exit()
 
 entity_names = []
 for tree in chunked_sentences:

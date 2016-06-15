@@ -35,6 +35,6 @@ class Process:
         return segmentos
 
 
-p = Process('resources/wiki_01')
+p = Process('resources/wiki_00')
 p.read()
-p.segment()[2]
+print(p.segment()[2])
